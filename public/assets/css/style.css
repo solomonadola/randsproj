@@ -145,7 +145,7 @@ body {
 	font-family: 'CircularStd', sans-serif;
 	font-size: .9375rem;
 	color: #1f1f1f;
-	background-color: #f7f7f7;
+	background-color: #06bd3110;
 	min-height: 100%;
 	overflow-x: hidden;
 }
@@ -1326,11 +1326,8 @@ table.dataTable thead > tr > td.sorting {
 -----------------------*/
 
 .header {
-	background: #f43b48;
-	background: -moz-linear-gradient(left, #f43b48 0%, #453a94 100%);
-	background: -webkit-linear-gradient(left, #f43b48 0%, #453a94 100%);
-	background: -ms-linear-gradient(left, #f43b48 0%, #453a94 100%);
-	background: linear-gradient(to right, #f43b48 0%, #453a94 100%);
+	background: #252525;
+
 	border-bottom: 1px solid transparent;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
 	height: 60px;
@@ -1755,6 +1752,7 @@ table.dataTable thead > tr > td.sorting {
 }
 .page-wrapper > .content {
 	padding: 30px;
+    color: #1e1e88;
 }
 .page-header {
 	margin-bottom: 1.875rem;
@@ -1975,9 +1973,9 @@ table.dataTable thead > tr > td.sorting {
 	padding-right: 15px;
 }
 .dash-widget-icon {
-	background-color: rgba(244, 59, 72, 0.2);
+	background-color: rgba(131, 108, 111, 0.2);
 	border-radius: 100%;
-	color: #f43b48;
+	color: #d64a5a;
 	display: inline-block;
 	/* float: left; */
 	font-size: 30px;
