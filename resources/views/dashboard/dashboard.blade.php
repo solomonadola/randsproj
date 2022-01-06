@@ -9,7 +9,7 @@
                     <li class="menu-title">
                         <span>Main</span>
                     </li>
-                    <li class="submenu">
+                    <li >
                         <a href="{{ route('home') }}">
                             <i class="la la-dashboard"></i>
 
@@ -19,24 +19,19 @@
                     <li class="submenu">
                         <a href="#">
                             <i class="la la-files-o"></i>
-                            <span> Manage Renter </span>
+                            <span> Manage Renters </span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul style="display: none;">
-                            <li><a href="estimates.html">Estimates</a></li>
-                            <li><a href="{{ route('form/invoice/view/page') }}">Invoices</a></li>
-                            <li><a href="payments.html">Payments</a></li>
+                            <li><a href="{{ route('viewRenter') }}">view Renters</a></li>
+                            <li><a href="{{ route('form/invoice/view/page') }}">edit/delete renters</a></li>
 
                         </ul>
                     </li>
 
                     <li class="submenu"> <a href="#"><i class="la la-pie-chart"></i>
                             <span> Manage Seller </span> <span class="menu-arrow"></span></a>
-                        <ul style="display: none;">
-                            <li><a href="{{ route('form/expense/reports/page') }}"> Expense Report </a></li>
-                            <li><a href="{{ route('form/invoice/reports/page') }}"> Invoice Report </a></li>
-                            <li><a href="payments-reports.html"> Payments Report </a></li>
-                        </ul>
+
                     </li>
                     <li class="submenu">
                         <a href="#">

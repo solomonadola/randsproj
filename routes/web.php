@@ -12,6 +12,8 @@ use App\Http\Controllers\LockScreen;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\ExpenseReportsController;
 use App\Http\Controllers\PerformanceController;
+use App\Http\Controllers\ViewRenter;
+use Illuminate\Routing\ViewController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -164,3 +166,8 @@ Route::get('form/training/list/page', [App\Http\Controllers\TrainingController::
 Route::post('form/training/save', [App\Http\Controllers\TrainingController::class, 'addNewTraining'])->middleware('auth')->name('form/training/save');
 Route::post('form/training/delete', [App\Http\Controllers\TrainingController::class, 'deleteTraining'])->middleware('auth')->name('form/training/delete');
 Route::post('form/training/update', [App\Http\Controllers\TrainingController::class, 'updateTraining'])->middleware('auth')->name('form/training/update');
+
+
+//view renter
+
+Route::get('/view/renter',[ViewRenter::class,'index'])->name('viewRenter');
