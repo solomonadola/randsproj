@@ -12,6 +12,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
     use LockableTrait;
+    protected $table ='admins';
 
     /**
      * The attributes that are mass assignable.
@@ -20,20 +21,14 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'rec_id',
         'email',
-        'join_date',
+        'email',
         'phone_number',
-        'status',
-        'role_name',
-        'email',
         'role_name',
         'avatar',
-        'position',
-        'department',
         'password',
     ];
-    
+
     /**
      * The attributes that should be hidden for arrays.
      *

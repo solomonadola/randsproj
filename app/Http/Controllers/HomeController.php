@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
+use App\Models\House;
 use Illuminate\Http\Request;
-use DB;
 use Carbon\Carbon;
-use PDF;
-use App\Models\User;
+use Barryvdh\DomPDF\PDF;
+use Ramsey\Uuid\Type\Integer;
+
 class HomeController extends Controller
 {
     /**
@@ -27,7 +29,15 @@ class HomeController extends Controller
     // main dashboard
     public function index()
     {
-        return view('dashboard.dashboard');
+        $housCount=House::count();
+        $custCount=Customer::count();
+        $housForSell=House::where('for','sell')->count();
+        $housForRental=House::where('for','rental')->count();
+        $housSold=House::where('status','sold')->count();
+        $housRented=House::where('status','rented')->count();
+        $latestSell=House::where('for','sell')->latest()->take(5)->get();
+        $latestRental=House::where('for','rental')->latest()->take(5)->get();
+        return view('dashboard.dashboard',compact('housCount','custCount','housForSell','housForRental','housSold','housRented','latestSell','latestRental'));
     }
     // employee dashboard
     public function emDashboard()
@@ -37,14 +47,14 @@ class HomeController extends Controller
         return view('dashboard.emdashboard',compact('todayDate'));
     }
 
-    public function generatePDF(Request $request)
-    {
-        // $data = ['title' => 'Welcome to ItSolutionStuff.com'];
-        // $pdf = PDF::loadView('payroll.salaryview', $data);
-        // return $pdf->download('text.pdf');
-        // selecting PDF view
-        $pdf = PDF::loadView('payroll.salaryview');
-        // download pdf file
-        return $pdf->download('pdfview.pdf');
-    }
+    // public function generatePDF(Request $request)
+    // {
+    //     // $data = ['title' => 'Welcome to ItSolutionStuff.com'];
+    //     // $pdf = PDF::loadView('payroll.salaryview', $data);
+    //     // return $pdf->download('text.pdf');
+    //     // selecting PDF view
+    //     $pdf = PDF::loadView('payroll.salaryview');
+    //     // download pdf file
+    //     return $pdf->download('pdfview.pdf');
+    // }
 }

@@ -2,10 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserTypesTable extends Migration
+class CreateHousespicTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,17 +13,12 @@ class CreateUserTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_types', function (Blueprint $table) {
+        Schema::create('housespic', function (Blueprint $table) {
             $table->id();
-            $table->string('type_name')->nullable();
+            $table->string('house_id');
+            $table->string('image');
             $table->timestamps();
         });
-
-        DB::table('user_types')->insert([
-            ['type_name' => 'Active'],
-            ['type_name' => 'Inactive'],
-            ['type_name' => 'Disable']
-        ]);
     }
 
     /**
@@ -34,6 +28,6 @@ class CreateUserTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_types');
+        Schema::dropIfExists('housespic');
     }
 }
