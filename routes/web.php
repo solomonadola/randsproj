@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotosController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DeleteHouse;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\UserManagementController;
 use App\Http\Controllers\SettingController;
@@ -12,6 +13,8 @@ use App\Http\Controllers\LockScreen;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\ExpenseReportsController;
 use App\Http\Controllers\PerformanceController;
+use App\Http\Controllers\UpdateHouse;
+use App\Http\Controllers\ViewHouseDetailController;
 use App\Http\Controllers\ViewRenter;
 use Illuminate\Routing\ViewController;
 use Illuminate\Support\Facades\Auth;
@@ -171,3 +174,12 @@ Route::post('form/training/update', [App\Http\Controllers\TrainingController::cl
 //view renter
 
 Route::get('/view/renter',[ViewRenter::class,'index'])->name('viewRenter');
+Route::get('/view/houseDetail',[ViewHouseDetailController::class,'index'])->name('viewHouseDetail');
+
+
+
+Route::get('/house/delete/{id}',[DeleteHouse::class,'index']);
+Route::get('/house/permanentlydelete/{id}',[DeleteHouse::class,'pdelete']);
+Route::get('/house/restore/{id}',[DeleteHouse::class,'restoreDelete']);
+Route::get('/house/update/{id}',[UpdateHouse::class,'index']);
+Route::post('/house/submit/{id}',[UpdateHouse::class,'update']);

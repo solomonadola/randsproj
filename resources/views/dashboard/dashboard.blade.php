@@ -19,12 +19,12 @@
                     <li class="submenu">
                         <a href="#">
                             <i class="la la-files-o"></i>
-                            <span> Manage Renters </span>
+                            <span> Manage Rent </span>
                             <span class="menu-arrow"></span>
                         </a>
                         <ul style="display: none;">
-                            <li><a href="{{ route('viewRenter') }}">view Renters</a></li>
-                            <li><a href="{{ route('form/invoice/view/page') }}">edit/delete renters</a></li>
+                            <li><a href="{{ route('viewRenter') }}">view Rent</a></li>
+                            <li><a href="{{ route('form/invoice/view/page') }}">add rent house</a></li>
 
                         </ul>
                     </li>

@@ -10,12 +10,12 @@
                 <li class="menu-title">
                     <span>Main</span>
                 </li>
-                <li >
+                <li>
                     <a href="{{ route('home') }}">
                         <i class="la la-dashboard"></i>
 
                         <span>Dashboard</span>
-                     </a>
+                    </a>
 
                 </li>
 
@@ -82,30 +82,87 @@
                                     <th>renter name</th>
                                     <th>Email</th>
                                     <th>phone</th>
-                                    <th>image </th>
-                                    <th>posted house</th>
+                                    <th>location</th>
+                                    <th>price/month</th>
                                     <th>action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                $i=1;
+                                @endphp
+                                @foreach ( $houses as $house )
                                 <tr>
-
+                                    <td>{{ $i++ }}</td>
+                                    <td>{{ $house->name }}</td>
+                                    <td>{{ $house->email }}</td>
+                                    <td>{{ $house->phone_number }}</td>
+                                    <td>{{ $house->location }}</td>
+                                    <td>{{ $house->price }}</td>
+                                    <td>
+                                        <a title="view this house detail" href="{{ route('viewHouseDetail') }}"><i
+                                                class="fa fa-eye view-link viewd"></i></a>
+                                        <a title="edit this house" href="{{ url('/house/update/'.$house->id) }}"><i
+                                                class="fa fa-edit view-link edith"></i></a>
+                                        <a title="delete this house " href="{{ url('house/delete/'.$house->id) }}"><i
+                                                class="fa fa-trash view-link deleteh"></i></a>
+                                    </td>
                                 </tr>
+                                @endforeach
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="review-section personal-excellence">
+            <div class="review-header text-center">
+                <h3 class="review-title">deleted list</h3>
+                <p class="text-muted">on RandS</p>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered review-table mb-0">
+                            <thead>
                                 <tr>
-
+                                    <th style="width:40px;">#</th>
+                                    <th>renter name</th>
+                                    <th>Email</th>
+                                    <th>phone</th>
+                                    <th>location</th>
+                                    <th>price/month</th>
+                                    <th>action</th>
                                 </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                $i=1;
+                                @endphp
+                                @foreach ( $deletedhouses as $house )
                                 <tr>
-
+                                    <td>{{ $i++ }}</td>
+                                    <td>{{ $house->name }}</td>
+                                    <td>{{ $house->email }}</td>
+                                    <td>{{ $house->phone_number }}</td>
+                                    <td>{{ $house->location }}</td>
+                                    <td>{{ $house->price }}</td>
+                                    <td>
+                                        <a title="view this house detail" href="{{ route('viewHouseDetail') }}"><i
+                                                class="fa fa-eye view-link viewd"></i></a>
+                                        <a title="undo delete this house"
+                                            href="{{ url('/house/restore/'.$house->id) }}"><i
+                                                class="fa fa-undo view-link edith"></i></a>
+                                        <a title="permanently delete this house "
+                                            href="{{ url('house/permanentlydelete/'.$house->id) }}"><i
+                                                class="fa fa-trash view-link deleteh"></i></a>
+                                    </td>
                                 </tr>
-                                <tr>
+                                @endforeach
 
-                                </tr>
-                                <tr>
 
-                                </tr>
-                                <tr>
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -115,11 +172,13 @@
 
         <!-- /Page Content -->
     </div>
-    <!-- /Page Wrapper -->
-    @section('script')
-    <!-- Add Table Row JS -->
-    <script>
-        $(function () {
+</div>
+
+<!-- /Page Wrapper -->
+@section('script')
+<!-- Add Table Row JS -->
+<script>
+    $(function () {
             $(document).on("click", '.btn-add-row', function () {
                 var id = $(this).closest("table.table-review").attr('id');  // Id of particular table
                 console.log(id);
@@ -137,6 +196,6 @@
                 return '<td>'+rowsLength+'</td>' + '<td><input type="text" name = "DynamicTextBox" class="form-control" value = "" ></td>' + '<td><input type="text" name = "DynamicTextBox" class="form-control" value = "" ></td>' + '<td><input type="text" name = "DynamicTextBox" class="form-control" value = "" ></td>' + '<td><button type="button" class="btn btn-danger" id="comments_remove"><i class="fa fa-trash-o"></i></button></td>'
             }
         });
-    </script>
-    @endsection
-    @endsection
+</script>
+@endsection
+@endsection
