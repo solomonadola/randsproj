@@ -18,7 +18,9 @@ class CreateHousesTable extends Migration
             $table->string('owner_id');
             $table->string('house_id');
             $table->string('location');
+            $table->string('title');
             $table->string('image');
+            $table->integer('price')->default(0);
             $table->string('for');
             $table->string('status');
             $table->integer('bed_rooms');
@@ -26,6 +28,8 @@ class CreateHousesTable extends Migration
             $table->string('size');
             $table->text('description');
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

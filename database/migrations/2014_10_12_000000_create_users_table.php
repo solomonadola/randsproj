@@ -13,19 +13,25 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('rec_id');
             $table->string('email')->unique();
+            $table->string('join_date')->unique();
             $table->string('phone_number')->nullable();
+            $table->string('status')->nullable();
             $table->string('role_name')->nullable();
             $table->string('avatar')->nullable();
+            $table->string('position')->nullable();
+            $table->string('department')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
     }
-
+    
 
     /**
      * Reverse the migrations.
@@ -34,6 +40,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('users');
     }
 }

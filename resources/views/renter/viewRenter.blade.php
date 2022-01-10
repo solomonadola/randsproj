@@ -27,7 +27,7 @@
                     </a>
                     <ul style="display: none;">
                         <li><a href="{{ route('viewRenter') }}">view Rent</a></li>
-                        <li><a href="{{ route('form/invoice/view/page') }}">add rent house</a></li>
+                        <li><a href="{{ route('addrentalhouse') }}">add rent house</a></li>
 
                     </ul>
                 </li>
@@ -69,6 +69,12 @@
 
         <section class="review-section personal-excellence">
             <div class="review-header text-center">
+                @if(session('success'))
+                <div class="alert alert-danger">
+                    {{ session('success') }}
+                </div>
+
+                @endif
                 <h3 class="review-title">renter list</h3>
                 <p class="text-muted">on RandS</p>
             </div>

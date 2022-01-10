@@ -27,7 +27,7 @@
                     </a>
                     <ul style="display: none;">
                         <li><a href="{{ route('viewRenter') }}">view Rent</a></li>
-                        <li><a href="{{ route('form/invoice/view/page') }}">add rent house</a></li>
+                        <li><a href="{{ route('addrentalhouse') }}">add rent house</a></li>
 
                     </ul>
                 </li>

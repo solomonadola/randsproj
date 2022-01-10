@@ -25,6 +25,6 @@ class UpdateHouse extends Controller
         $house->bath_rooms = $request->bathrooms;
         $house->description = $request->description;
         $house->save();
-        return redirect()->back()->with('success','data updated successfully');
+        return redirect()->back()->with('success','house data updated successfully');
     }
 }

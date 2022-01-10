@@ -15,13 +15,13 @@ class DeleteHouse extends Controller
     public function pdelete($id)
     {
         House::onlyTrashed()->find($id)->forceDelete();
-        return Redirect()->back()->with('success', 'house  deleted successfully');
+        return Redirect()->back()->with('success', 'house  deleted permanently');
 
     }
     public function restoreDelete($id)
     {
         House::onlyTrashed()->find($id)->restore();
-        return Redirect()->back()->with('success', 'house  deleted successfully');
+        return Redirect()->back()->with('success', 'house  restored successfully');
 
     }
 }

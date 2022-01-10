@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddRentalHouse;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotosController;
 use App\Http\Controllers\Auth\LoginController;
@@ -183,3 +184,4 @@ Route::get('/house/permanentlydelete/{id}',[DeleteHouse::class,'pdelete']);
 Route::get('/house/restore/{id}',[DeleteHouse::class,'restoreDelete']);
 Route::get('/house/update/{id}',[UpdateHouse::class,'index']);
 Route::post('/house/submit/{id}',[UpdateHouse::class,'update']);
+Route::get('/house/add',[AddRentalHouse::class,'index'])->name('addrentalhouse');

@@ -57,30 +57,24 @@
                 <div class="page-header">
                     <div class="row">
                         <div class="col-sm-12">
-                            @if(session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-
-                            @endif
-                            <h3 class="page-title">update house</h3>
+                            <h3 class="page-title">add house</h3>
                         </div>
                     </div>
                 </div>
                 <!-- /Page Header -->
-                <form action="{{ url('/house/submit/'.$id) }}" method="POST">
+                <form action="{{ url('/house/submit/') }}" method="POST">
                     @csrf
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="title">house title</label>
-                                <input name="title" class="form-control" type="text" value="{{ $data->title }}">
+                                <input name="title" class="form-control" type="text" value="">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="location">house location</label>
-                                <input name="location" class="form-control" type="text" value="{{ $data->location }}">
+                                <input name="location" class="form-control" type="text" value="">
                             </div>
                         </div>
                     </div>
@@ -99,13 +93,9 @@
                             <div class="form-group">
                                 <label for="status">status</label>
                                 <select name="status" class="form-control">
-                                    @if ($data->status=='rented')
-                                    <option value="rented">rented</option>
-                                    <option value="not rented">not rented</option>
-                                    @else
+
                                     <option value="not rented">not rented</option>
                                     <option value="rented">rented</option>
-                                    @endif
 
 
                                 </select>
@@ -114,98 +104,32 @@
                         <div class="col-sm-6 col-md-6 col-lg-3">
                             <div class="form-group">
                                 <label for="size">size</label>
-                                <input name="size" class="form-control" value="{{ $data->size }}" type="text">
+                                <input name="size" class="form-control" value="" type="text">
                             </div>
                         </div>
 
                         <div class="col-sm-6 col-md- col-lg-3">
                             <div class="form-group">
                                 <label for="bedrooms">bedrooms</label>
-                                <input name="bedrooms" class="form-control" value="{{ $data->bed_rooms }}" type="text">
+                                <input name="bedrooms" class="form-control" value="" type="text">
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6 col-lg-3">
                             <div class="form-group">
                                 <label for="bathrooms">bathrooms</label>
-                                <input name="bathrooms" class="form-control" value="{{ $data->bath_rooms }}"
-                                    type="text">
+                                <input name="bathrooms" class="form-control" value="" type="text">
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label for="description">description</label>
                                 <textarea name="description" id="" cols="30" rows="10" class="form-control " value=""
-                                    type="text">{{ $data->description }}</textarea>
+                                    type="text"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class=" col-sm-8">
 
-                            <div class="container">
-                                <div class="mySlides">
-                                    <div class="numbertext">1 / 6</div>
-                                    <img src="{{ '/assets/house_images/house2.jpg' }}" style="width:70%; ">
-                                </div>
-
-                                <div class="mySlides">
-                                    <div class="numbertext">2 / 6</div>
-                                    <img src="{{ '/assets/house_images/house4.jpg' }}" style="width:70%">
-                                </div>
-
-                                <div class="mySlides">
-                                    <div class="numbertext">3 / 6</div>
-                                    <img src="{{ '/assets/house_images/house5.jpg' }}" style="width:70%">
-                                </div>
-
-                                <div class="mySlides">
-                                    <div class="numbertext">4 / 6</div>
-                                    <img src="{{ '/assets/house_images/house6.jpg' }}" style="width:70%">
-                                </div>
-
-                                <div class="mySlides">
-                                    <div class="numbertext">5 / 6</div>
-                                    <img src="{{ '/assets/house_images/house7.jpg' }}" style="width:70%">
-                                </div>
-
-                                <div class="mySlides">
-                                    <div class="numbertext">6 / 6</div>
-                                    <img src="{{ '/assets/house_images/house5.jpg' }}" style="width:70%">
-                                </div>
-
-                                <a class="prev" onclick="plusSlides(-1)">❮</a>
-                                <a class="next" onclick="plusSlides(1)">❯</a>
-
-
-
-                                <div class="row">
-                                    <div class="column">
-                                        <img class="demo cursor" src="{{ '/assets/house_images/house2.jpg' }}"
-                                            style="width:100%" onclick="currentSlide(1)">
-                                    </div>
-                                    <div class="column">
-                                        <img class="demo cursor" src="{{ '/assets/house_images/house4.jpg' }}"
-                                            style="width:100%" onclick="currentSlide(2)">
-                                    </div>
-                                    <div class="column">
-                                        <img class="demo cursor" src="{{ '/assets/house_images/house5.jpg' }}"
-                                            style="width:100%" onclick="currentSlide(3)">
-                                    </div>
-                                    <div class="column">
-                                        <img class="demo cursor" src="{{ '/assets/house_images/house6.jpg' }}"
-                                            style="width:100%" onclick="currentSlide(4)">
-                                    </div>
-                                    <div class="column">
-                                        <img class="demo cursor" src="{{ '/assets/house_images/house7.jpg' }}"
-                                            style="width:100%" onclick="currentSlide(5)">
-                                    </div>
-                                    <div class="column">
-                                        <img class="demo cursor" src="{{ '/assets/house_images/house5.jpg' }}"
-                                            style="width:100%" onclick="currentSlide(6)">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="col-sm-6 col-md-6 col-lg-3">
                             <div class="form-group">

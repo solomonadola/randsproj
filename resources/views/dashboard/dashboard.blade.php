@@ -24,7 +24,7 @@
                         </a>
                         <ul style="display: none;">
                             <li><a href="{{ route('viewRenter') }}">view Rent</a></li>
-                            <li><a href="{{ route('form/invoice/view/page') }}">add rent house</a></li>
+                            <li><a href="{{ route('addrentalhouse') }}">add rent house</a></li>
 
                         </ul>
                     </li>
@@ -160,7 +160,7 @@
                                             <tr>
                                                 <td>
                                                     <h2>
-                                                        <a href="">{{ $sell->title }}</a>
+                                                        <a href="{{ route('viewHouseDetail') }}">{{ $sell->title }}</a>
                                                     </h2>
 
                                                 </td>
@@ -197,7 +197,7 @@
                                             <tr>
                                                 <td>
                                                     <h2>
-                                                        <a href="">{{ $rent->title }}</a>
+                                                        <a href="{{ route('viewHouseDetail') }}">{{ $rent->title }}</a>
                                                     </h2>
 
                                                 </td>
