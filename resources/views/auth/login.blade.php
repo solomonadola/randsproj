@@ -43,9 +43,9 @@
                                         <label></label>
                                     </div>
                                     <div class="col-auto">
-                                        <a class="text-muted" href="{{ route('forget-password') }}">
+                                        {{-- <a class="text-muted" href="{{ route('forget-password') }}">
                                             Forgot password?
-                                        </a>
+                                        </a> --}}
                                     </div>
                                 </div>
                             </div>

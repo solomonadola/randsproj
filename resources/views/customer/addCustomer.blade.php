@@ -31,7 +31,7 @@
                         </ul>
                     </li>
 
-                  <li class="submenu">
+                    <li class="submenu">
                         <a href="#">
                             <i class="la la-pie-chart"></i>
                             <span> Manage Sell </span>
@@ -108,7 +108,7 @@
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <label for="owner_id">owner id</label>
-                                    <input name="owner_id" class="form-control" type="text" value="">
+                                    <input name="location" class="form-control" type="text" value="">
                                 </div>
                             </div>
                         </div>
@@ -133,12 +133,6 @@
 
 
                                     </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-3">
-                                <div class="form-group">
-                                    <label for="price">price/month</label>
-                                    <input name="price" class="form-control" value="" type="text">
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-3">

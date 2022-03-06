@@ -74,11 +74,11 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">manage renter</h3>
+                        <h3 class="page-title">manage seller</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item ">manage renter</li>
-                            <li class="breadcrumb-item ">view rent detail</li>
+                            <li class="breadcrumb-item ">manage seller</li>
+                            <li class="breadcrumb-item ">view sell detail</li>
                         </ul>
                     </div>
                 </div>
@@ -173,7 +173,7 @@
                                             {{ $house->status }}
                                         </div>
                                         <div class="form-group">
-                                            <b style="color: black; font-size: 120%">price/month:</b> {{ $house->price }}
+                                            <b style="color: black; font-size: 120%">selling price:</b> {{ $house->price }}
                                         </div>
 
                                         <div>

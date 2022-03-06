@@ -117,8 +117,8 @@
                                 <div class="form-group">
                                     <label for="for">for</label>
                                     <select name="for" class="form-control">
-                                        <option value="rental">rental</option>
                                         <option value="sell">sell</option>
+                                        <option value="rental">rental</option>
 
                                     </select>
                                 </div>
@@ -128,8 +128,8 @@
                                     <label for="status">status</label>
                                     <select name="status" class="form-control">
 
-                                        <option value="not rented">not rented</option>
-                                        <option value="rented">rented</option>
+                                        <option value="not sold">not sold</option>
+                                        <option value="sold">sold</option>
 
 
                                     </select>
@@ -137,7 +137,7 @@
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-3">
                                 <div class="form-group">
-                                    <label for="price">price/month</label>
+                                    <label for="price">price</label>
                                     <input name="price" class="form-control" value="" type="text">
                                 </div>
                             </div>

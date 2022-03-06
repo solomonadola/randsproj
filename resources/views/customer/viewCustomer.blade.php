@@ -157,20 +157,8 @@
 
                                         </div>
                                         <div class="form-group">
-                                            <b style="color: black; font-size: 120%">bed room:</b>
-                                            {{ $house->bed_rooms }}
-                                        </div>
-                                        <div class="form-group">
                                             <b style="color: black; font-size: 120%">bath room:</b>
                                             {{ $house->bath_rooms }}
-                                        </div>
-                                        <div class="form-group">
-                                            <b style="color: black; font-size: 120%">for:</b>
-                                            {{ $house->for }}
-                                        </div>
-                                        <div class="form-group">
-                                            <b style="color: black; font-size: 120%">status:</b>
-                                            {{ $house->status }}
                                         </div>
                                         <div class="form-group">
                                             <b style="color: black; font-size: 120%">price/month:</b> {{ $house->price }}

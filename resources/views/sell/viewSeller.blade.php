@@ -93,7 +93,7 @@
                 </div>
 
                 @endif
-                <h3 class="review-title">renter list</h3>
+                <h3 class="review-title">Seller list</h3>
                 <p class="text-muted">on RandS</p>
             </div>
             <div class="row">
@@ -103,7 +103,7 @@
                             <thead>
                                 <tr>
                                     <th style="width:40px;">#</th>
-                                    <th>renter name</th>
+                                    <th>seller name</th>
                                     <th>Email</th>
                                     <th>phone</th>
                                     <th>location</th>
@@ -124,7 +124,7 @@
                                     <td>{{ $house->location }}</td>
                                     <td>{{ $house->price }}</td>
                                     <td>
-                                        <a title="view this house detail" href="{{ url('view/houseDetail/'.$house->id) }}"><i
+                                        <a title="view this house detail" href="{{ url('/view/sellDetail/'.$house->id) }}"><i
                                                 class="fa fa-eye view-link viewd"></i></a>
                                         <a title="edit this house" href="{{ url('/house/update/'.$house->id) }}"><i
                                                 class="fa fa-edit view-link edith"></i></a>
@@ -153,7 +153,7 @@
                             <thead>
                                 <tr>
                                     <th style="width:40px;">#</th>
-                                    <th>renter name</th>
+                                    <th>seller name</th>
                                     <th>Email</th>
                                     <th>phone</th>
                                     <th>location</th>
@@ -174,8 +174,8 @@
                                     <td>{{ $house->location }}</td>
                                     <td>{{ $house->price }}</td>
                                     <td>
-                                        <a title="view this house detail" href="{{ url('view/houseDetail/'.$house->id) }}"><i
-                                                class="fa fa-eye view-link viewd"></i></a>
+                                        <a title="view this house detail" href="{{ url('/view/sellDetail/'.$house->id) }}"><i
+                                            class="fa fa-eye view-link viewd"></i></a>
                                         <a title="undo delete this house"
                                             href="{{ url('/house/restore/'.$house->id) }}"><i
                                                 class="fa fa-undo view-link edith"></i></a>

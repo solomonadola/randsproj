@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('content')
-
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-inner slimscroll">
@@ -9,7 +8,7 @@
                     <li class="menu-title">
                         <span>Main</span>
                     </li>
-                    <li >
+                    <li>
                         <a href="{{ route('home') }}">
                             <i class="la la-dashboard"></i>
 
@@ -29,9 +28,28 @@
                         </ul>
                     </li>
 
-                    <li class="submenu"> <a href="#"><i class="la la-pie-chart"></i>
-                            <span> Manage Seller </span> <span class="menu-arrow"></span></a>
+                 <li class="submenu">
+                        <a href="#">
+                            <i class="la la-pie-chart"></i>
+                            <span> Manage Sell </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul style="display: none;">
+                            <li><a href="{{ route('viewSeller') }}">View Sell</a></li>
+                            <li><a href="{{ route('addsellhouse') }}">Add Sell House</a></li>
+                        </ul>
+                    </li>
 
+                    <li class="submenu">
+                        <a href="#">
+                            <i class="la la-user-alt"></i>
+                            <span> Manage customer </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul style="display: none;">
+                            <li><a href="{{ route('addcustomer') }}">Add Customer</a></li>
+                            <li><a href="{{ route('viewcustomer') }}">View Customer </a></li>
+                        </ul>
                     </li>
                     <li class="submenu">
                         <a href="#">
@@ -156,11 +174,10 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($latestSell as $sell)
-
                                             <tr>
                                                 <td>
                                                     <h2>
-                                                        <a href="{{ route('viewHouseDetail') }}">{{ $sell->title }}</a>
+                                                        {{-- <a href="{{ url('view/houseDetail/'.$house->id) }}">{{ $sell->title }}</a> --}}
                                                     </h2>
 
                                                 </td>
@@ -193,11 +210,10 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($latestRental as $rent)
-
                                             <tr>
                                                 <td>
                                                     <h2>
-                                                        <a href="{{ route('viewHouseDetail') }}">{{ $rent->title }}</a>
+                                                        {{-- <a href="{{ route('view/houseDetail/'.$house->id) }}">{{ $rent->title }}</a> --}}
                                                     </h2>
 
                                                 </td>

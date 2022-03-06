@@ -2,24 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Brian2694\Toastr\Facades\Toastr;
-use App\Models\Holiday;
 use App\Models\House;
-use App\Models\Housepic as ModelsHousepic;
+use App\Models\Housepic;
 use Carbon\Carbon;
-use DB;
-use Illuminate\Support\Facades\DB as FacadesDB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class AddRentalHouse extends Controller
+class AddSellHouse extends Controller
 {
+    //
     public function index()
     {
-        return view('renter.addrentalhouse');
+        return view('sell.addsellhouse');
     }
     public function insertHouse(Request $request)
     {
-        $id = FacadesDB::select("SHOW TABLE STATUS LIKE 'houses'");
+        $id = DB::select("SHOW TABLE STATUS LIKE 'houses'");
         $next_id = $id[0]->Auto_increment;
 
 
@@ -31,7 +29,7 @@ class AddRentalHouse extends Controller
             $uplocation = 'assets/house_images/';
             $final_image = $uplocation . $image_name;
             $image->move($uplocation, $image_name);
-            ModelsHousepic::insert([
+            Housepic::insert([
                 'house_id' => $next_id,
                 'image' => $final_image,
                 'created_at' => Carbon::now(),

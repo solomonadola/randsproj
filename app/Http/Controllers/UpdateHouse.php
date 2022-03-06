@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\House;
+use App\Models\Housespic;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class UpdateHouse extends Controller
 {
@@ -13,6 +14,7 @@ class UpdateHouse extends Controller
         $data = House::find($id);
         return view('renter.editHouse', compact('data', 'id'));
     }
+
     public function update(Request $request, $id)
     {
         $house = House::find($id);
@@ -25,6 +27,7 @@ class UpdateHouse extends Controller
         $house->bath_rooms = $request->bathrooms;
         $house->description = $request->description;
         $house->save();
-        return redirect()->back()->with('success','house data updated successfully');
+        return redirect()->back()->with('success', 'house data updated successfully');
     }
+
 }
