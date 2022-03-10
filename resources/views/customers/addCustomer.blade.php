@@ -31,7 +31,7 @@
                         </ul>
                     </li>
 
-                  <li class="submenu">
+                    <li class="submenu">
                         <a href="#">
                             <i class="la la-pie-chart"></i>
                             <span> Manage Sell </span>
@@ -74,119 +74,79 @@
                     <div class="page-header">
                         <div class="row">
                             <div class="col-sm-12">
-                                <h3 class="page-title">add house</h3>
+                                <h3 class="page-title">add customer</h3>
                             </div>
                         </div>
                     </div>
                     <!-- /Page Header -->
                     @if (session('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>
-                            {{session('success')}}
-                        </strong>
-                        <button class="close" type="button" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>
+                                {{ session('success') }}
+                            </strong>
+                            <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                     @endif
-                    <form action="{{ url('/house/submit/') }}" method="POST" enctype="multipart/form-data">
+                    @if (session('fails'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>
+                                {{ session('fails') }}
+                            </strong>
+                            <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
+                    <form action="{{ url('add/customer/new') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="title">house title</label>
-                                    <input name="title" class="form-control" type="text" value="">
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group">
-                                    <label for="location">house location</label>
-                                    <input name="location" class="form-control" type="text" value="">
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group">
-                                    <label for="owner_id">owner id</label>
-                                    <input name="owner_id" class="form-control" type="text" value="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6 col-md-6 col-lg-3">
-                                <div class="form-group">
-                                    <label for="for">for</label>
-                                    <select name="for" class="form-control">
-                                        <option value="sell">sell</option>
-                                        <option value="rental">rental</option>
+                        <div class="row bg-white">
+                            <div class="col-sm-8 ">
 
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-3">
                                 <div class="form-group">
-                                    <label for="status">status</label>
-                                    <select name="status" class="form-control">
 
-                                        <option value="not sold">not sold</option>
-                                        <option value="sold">sold</option>
-
-
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-3">
-                                <div class="form-group">
-                                    <label for="price">price</label>
-                                    <input name="price" class="form-control" value="" type="text">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-3">
-                                <div class="form-group">
-                                    <label for="size">size</label>
-                                    <input name="size" class="form-control" value="" type="text">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 col-md- col-lg-3">
-                                <div class="form-group">
-                                    <label for="bedrooms">bedrooms</label>
-                                    <input name="bedrooms" class="form-control" value="" type="text">
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-3">
-                                <div class="form-group">
-                                    <label for="bathrooms">bathrooms</label>
-                                    <input name="bathrooms" class="form-control" value="" type="text">
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label for="description">description</label>
-                                    <textarea name="description" id="" cols="30" rows="10" class="form-control " value=""
-                                        type="text"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-
-
-                            <div class="col-sm-6 col-md-6 col-lg-3">
-                                <div class="form-group">
-                                    <label for="ims">upload image</label>
-                                    <input name="images[]" class="form-control" type="file" multiple="" >
-                                </div>
+                                    <label for="name">Full Name:</label>
+                                    <input style="border: 1px solid rgb(0, 0, 0) " name="name" class="form-control "
+                                        type="text" value="{{ $name }}">
+                                </div> @error('name')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                @enderror
                             </div>
 
 
                         </div>
-                        @error('images')
-                        <span class="text-danger"> {{ $message}}</span>
+                        <div class="row bg-white">
+                            <div class="col-sm-8">
 
-                        @enderror
+                                <div class="form-group">
+
+                                    <label for="email">Email:</label>
+                                    <input style="border: 1px solid rgb(0, 0, 0) " name="email" class="form-control"
+                                        type="text" value="">
+                                </div> @error('email')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row bg-white">
+                            <div class="col-sm-4">
+
+                                <div class="form-group">
+
+                                    <label for="phone">Phone:</label>
+                                    <input style="border: 1px solid rgb(0, 0, 0) " name="phone" class="form-control"
+                                        type="tel" value="{{ $phone }}">
+                                </div> @error('phone')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+
+
 
                         <div class="submit-section">
-                            <button type="submit" class="btn btn-primary submit-btn">Save</button>
+                            <button type="submit" class="btn btn-secondary submit-btn">Add Customer</button>
                         </div>
                     </form>
                 </div>
@@ -196,14 +156,10 @@
     </div>
     <!-- /Page Wrapper -->
 @section('script')
-
     {{-- update js --}}
 
 
     {{-- delete model --}}
-
-
-
 @endsection
 
 

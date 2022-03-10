@@ -99,5 +99,6 @@ Route::get('/sellhouse/add',[AddSellHouse::class,'index'])->name('addsellhouse')
 Route::post('/sellhouse/submit',[AddSellHouse::class,'insertHouse']);
 
 
-Route::post('/add/customer',[CustomerController::class,'addCustomer'])->name('addcustomer');
+Route::get('add/customer/',[CustomerController::class,'index'])->name('addcustomer');
+Route::post('add/customer/new',[CustomerController::class,'addcustomer']);
 Route::get('/view/customer',[CustomerController::class,'viewCustomer'])->name('viewcustomer');
