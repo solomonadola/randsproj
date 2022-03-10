@@ -75,18 +75,24 @@
                 <div class="page-header">
                     <div class="row">
                         <div class="col-sm-12">
-                            @if(session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
+                            @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>
+                                    {{session('success')}}
+                                </strong>
+                                <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
 
-                            @endif
                             <h3 class="page-title">update house</h3>
                         </div>
                     </div>
                 </div>
                 <!-- /Page Header -->
-                <form action="{{ url('/house/submit/'.$id) }}" method="POST">
+
+                @endif
+                <form action="{{ url('/house/submit/'.$id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-sm-6">
@@ -117,12 +123,12 @@
                             <div class="form-group">
                                 <label for="status">status</label>
                                 <select name="status" class="form-control">
-                                    @if ($data->status=='rented')
-                                    <option value="rented">rented</option>
-                                    <option value="not rented">not rented</option>
+                                    @if ($data->status == 'sold')
+                                        <option value="sold">sold</option>
+                                        <option value="not sold">not sold</option>
                                     @else
-                                    <option value="not rented">not rented</option>
-                                    <option value="rented">rented</option>
+                                        <option value="not sold">not sold</option>
+                                        <option value="sold">sold</option>
                                     @endif
 
 
@@ -161,76 +167,44 @@
                         <div class=" col-sm-8">
 
                             <div class="container">
-                                <div class="mySlides">
-                                    <div class="numbertext">1 / 6</div>
-                                    <img src="{{ '/assets/house_images/house2.jpg' }}" style="width:70%; ">
-                                </div>
+                                @php
+                                    $i = 1;
+                                @endphp
+                                @foreach ($housepic as $images)
+                                    <div class="mySlides">
+                                        <div class="numbertext">$i++ / $housepic.length</div>
+                                        <img src="/{{ $images->image }}" style="width:70%; ">
+                                    </div>
+                                @endforeach
 
-                                <div class="mySlides">
-                                    <div class="numbertext">2 / 6</div>
-                                    <img src="{{ '/assets/house_images/house4.jpg' }}" style="width:70%">
-                                </div>
-
-                                <div class="mySlides">
-                                    <div class="numbertext">3 / 6</div>
-                                    <img src="{{ '/assets/house_images/house5.jpg' }}" style="width:70%">
-                                </div>
-
-                                <div class="mySlides">
-                                    <div class="numbertext">4 / 6</div>
-                                    <img src="{{ '/assets/house_images/house6.jpg' }}" style="width:70%">
-                                </div>
-
-                                <div class="mySlides">
-                                    <div class="numbertext">5 / 6</div>
-                                    <img src="{{ '/assets/house_images/house7.jpg' }}" style="width:70%">
-                                </div>
-
-                                <div class="mySlides">
-                                    <div class="numbertext">6 / 6</div>
-                                    <img src="{{ '/assets/house_images/house5.jpg' }}" style="width:70%">
-                                </div>
 
                                 <a class="prev" onclick="plusSlides(-1)">❮</a>
                                 <a class="next" onclick="plusSlides(1)">❯</a>
 
 
 
-                                <div class="row">
-                                    <div class="column">
-                                        <img class="demo cursor" src="{{ '/assets/house_images/house2.jpg' }}"
-                                            style="width:100%" onclick="currentSlide(1)">
-                                    </div>
-                                    <div class="column">
-                                        <img class="demo cursor" src="{{ '/assets/house_images/house4.jpg' }}"
-                                            style="width:100%" onclick="currentSlide(2)">
-                                    </div>
-                                    <div class="column">
-                                        <img class="demo cursor" src="{{ '/assets/house_images/house5.jpg' }}"
-                                            style="width:100%" onclick="currentSlide(3)">
-                                    </div>
-                                    <div class="column">
-                                        <img class="demo cursor" src="{{ '/assets/house_images/house6.jpg' }}"
-                                            style="width:100%" onclick="currentSlide(4)">
-                                    </div>
-                                    <div class="column">
-                                        <img class="demo cursor" src="{{ '/assets/house_images/house7.jpg' }}"
-                                            style="width:100%" onclick="currentSlide(5)">
-                                    </div>
-                                    <div class="column">
-                                        <img class="demo cursor" src="{{ '/assets/house_images/house5.jpg' }}"
-                                            style="width:100%" onclick="currentSlide(6)">
-                                    </div>
+                                <div class="row" style="  display: flex; justify-content: center;">
+                                    @php
+                                        $h = 1;
+                                    @endphp
+                                    @foreach ($housepic as $images)
+                                        <div class="column">
+                                            <img class="demo cursor" src="/{{ $images->image }}" style="width:100%"
+                                                onclick="currentSlide({{ $h++ }})">
+                                        </div>
+                                    @endforeach
+
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-sm-6 col-md-6 col-lg-3">
                             <div class="form-group">
-                                <label for="image">update image</label>
-                                <input name="image[]" class="form-control" type="file" multiple>
+                                <label for="updateimages">upload image</label>
+                                <input name="updateimages[]" id="updateimages" class="form-control" type="file" multiple="" >
                             </div>
                         </div>
+
 
                     </div>
 

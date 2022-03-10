@@ -173,7 +173,7 @@
 
                             <div class="col-sm-6 col-md-6 col-lg-3">
                                 <div class="form-group">
-                                    <label for="ims">upload image</label>
+                                    <label for="images">upload image</label>
                                     <input name="images[]" class="form-control" type="file" multiple="" >
                                 </div>
                             </div>

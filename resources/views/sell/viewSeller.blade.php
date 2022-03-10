@@ -126,7 +126,7 @@
                                     <td>
                                         <a title="view this house detail" href="{{ url('/view/sellDetail/'.$house->id) }}"><i
                                                 class="fa fa-eye view-link viewd"></i></a>
-                                        <a title="edit this house" href="{{ url('/house/update/'.$house->id) }}"><i
+                                        <a title="edit this house" href="{{ url('/house/updatesell/'.$house->id) }}"><i
                                                 class="fa fa-edit view-link edith"></i></a>
                                         <a title="delete this house " href="{{ url('house/delete/'.$house->id) }}"><i
                                                 class="fa fa-trash view-link deleteh"></i></a>
@@ -174,7 +174,7 @@
                                     <td>{{ $house->location }}</td>
                                     <td>{{ $house->price }}</td>
                                     <td>
-                                        <a title="view this house detail" href="{{ url('/view/sellDetail/'.$house->id) }}"><i
+                                        <a title="view this house detail" href="{{ url('/view/sellDetaild/'.$house->id) }}"><i
                                             class="fa fa-eye view-link viewd"></i></a>
                                         <a title="undo delete this house"
                                             href="{{ url('/house/restore/'.$house->id) }}"><i

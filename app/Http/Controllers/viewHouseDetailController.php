@@ -11,6 +11,14 @@ class ViewHouseDetailController extends Controller
 {
     public function index($id)
     {
+        $house = House::onlyTrashed()->find($id);
+        $customer = Customer::find($house->owner_id);
+        $housepic = Housepic::where('house_id',$id)->get();
+
+        return view('renter.viewHouseDetail', compact('customer', 'house', 'housepic'));
+    }
+    public function index2($id)
+    {
         $house = House::find($id);
         $customer = Customer::find($house->owner_id);
         $housepic = Housepic::where('house_id',$id)->get();

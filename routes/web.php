@@ -74,11 +74,13 @@ Route::post('unlock', [App\Http\Controllers\LockScreen::class, 'unlock'])->name(
 
 Route::get('/view/renter',[ViewRenter::class,'index'])->name('viewRenter');
 Route::get('/view/houseDetail/{id}',[ViewHouseDetailController::class,'index'])->name('viewHouseDetail');
+Route::get('/view/houseDetailn/{id}',[ViewHouseDetailController::class,'index2'])->name('viewHouseDetail');
 Route::get('/house/delete/{id}',[DeleteHouse::class,'index']);
 Route::get('/house/permanentlydelete/{id}',[DeleteHouse::class,'pdelete']);
 Route::get('/house/restore/{id}',[DeleteHouse::class,'restoreDelete']);
 Route::get('/house/update/{id}',[UpdateHouse::class,'index']);
 Route::post('/house/submit/{id}',[UpdateHouse::class,'update']);
+Route::post('house/updat/{id}',[UpdateHouse::class,'update']);
 Route::get('/house/add',[AddRentalHouse::class,'index'])->name('addrentalhouse');
 Route::post('/house/submit',[AddRentalHouse::class,'insertHouse']);
 
@@ -86,6 +88,8 @@ Route::post('/house/submit',[AddRentalHouse::class,'insertHouse']);
 //view seller
 Route::get('/view/seller',[ViewSeller::class,'index'])->name('viewSeller');
 Route::get('/view/sellDetail/{id}',[ViewSellDetailController::class,'index'])->name('viewSellDetail');
+Route::get('/view/sellDetaild/{id}',[ViewSellDetailController::class,'index2'])->name('viewSellDetail');
+Route::get('/house/updatesell/{id}',[UpdateHouse::class,'index2']);
 Route::get('/sellhouse/delete/{id}',[DeleteSellHouse::class,'index']);
 Route::get('/sellhouse/permanentlydelete/{id}',[DeleteSellHouse::class,'pdelete']);
 Route::get('/sellhouse/restore/{id}',[DeleteSellHouse::class,'restoreDelete']);
