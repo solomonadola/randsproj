@@ -190,7 +190,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="projects.html">View All Houses for Sell</a>
+                            <a href="">View All Houses for Sell</a>
                         </div>
                     </div>
                 </div>
@@ -225,7 +225,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <a href="projects.html">View All Houses for Rent</a>
+                            <a href="">View All Houses for Rent</a>
                         </div>
                     </div>
                 </div>
