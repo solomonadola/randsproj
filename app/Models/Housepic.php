@@ -13,4 +13,7 @@ class Housepic extends Model
     protected $fillable = [
         'house_id', 'image'
     ];
+    public function house(){
+        return $this->belongsTo(House::class,'id');
+    }
 }

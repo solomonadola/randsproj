@@ -56,6 +56,9 @@ Route::group(['middleware'=>'auth'],function()
 Auth::routes();
 
 // ----------------------------- main dashboard ------------------------------//
+Route::get('www.RandS.com', [App\Http\Controllers\HomeController::class, 'rands'])->name('RandShome');
+Route::get('www.RandS.com/product', [App\Http\Controllers\HomeController::class, 'randsproduct'])->name('RandSproduct');
+Route::get('www.RandS.com/productDetail/{id}', [App\Http\Controllers\HomeController::class, 'randsdetail']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('em/dashboard', [App\Http\Controllers\HomeController::class, 'emDashboard'])->name('em/dashboard');
 

@@ -28,7 +28,7 @@
                         </ul>
                     </li>
 
-                 <li class="submenu">
+                    <li class="submenu">
                         <a href="#">
                             <i class="la la-pie-chart"></i>
                             <span> Manage Sell </span>
@@ -162,6 +162,7 @@
                     <div class="card card-table flex-fill">
                         <div class="card-header">
                             <h3 class="card-title mb-0">Recent Houses for Sell</h3>
+
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -173,11 +174,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($latestSell as $sell)
+                                        @foreach ($housForSel as $sell)
                                             <tr>
+
                                                 <td>
                                                     <h2>
-                                                        {{-- <a href="{{ url('view/houseDetail/'.$house->id) }}">{{ $sell->title }}</a> --}}
+                                                        <a
+                                                            href="{{ url('/view/sellDetail/' . $sell->id) }}">{{ $sell->title }}</a>
                                                     </h2>
 
                                                 </td>
@@ -189,15 +192,13 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <a href="">View All Houses for Sell</a>
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-md-6 d-flex">
                     <div class="card card-table flex-fill">
                         <div class="card-header">
-                            <h3 class="card-title mb-0">Recent Houses for Rent</h3>
+                            <h3 class="card-title mb-0">Recent Houses for Sell</h3>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -209,11 +210,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($latestRental as $rent)
+                                        @foreach ($housForRenl as $rent)
                                             <tr>
                                                 <td>
                                                     <h2>
-                                                        {{-- <a href="{{ route('view/houseDetail/'.$house->id) }}">{{ $rent->title }}</a> --}}
+                                                        <a
+                                                            href="{{ url('/view/sellDetail/' . $rent->id) }}">{{ $rent->title }}</a>
                                                     </h2>
 
                                                 </td>
@@ -224,9 +226,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <a href="">View All Houses for Rent</a>
-                        </div>
+
                     </div>
                 </div>
             </div>

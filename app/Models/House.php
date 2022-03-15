@@ -10,4 +10,8 @@ class House extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    public function housepic(){
+        return $this->hasMany(Housepic::class,'house_id');
+    }
 }
